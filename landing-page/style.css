@@ -1,0 +1,398 @@
+:root {
+    --bg-black: #000000;
+    --bg-dark: #161617;
+    --text-white: #f5f5f7;
+    --text-gray: #86868b;
+    --accent-red: #e63946;
+    --apple-blue: #0071e3;
+    --transition: all 0.6s cubic-bezier(0.28, 0.11, 0.32, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.pro-theme {
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: 'Outfit', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Glass Nav */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 52px;
+    background: rgba(22, 22, 23, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    z-index: 9999;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+#navbar .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent-red);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-size: 0.8rem;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+}
+
+.btn-buy {
+    background: var(--apple-blue);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem !important;
+    opacity: 1 !important;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 52px;
+}
+
+.hero-section h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    color: var(--text-gray);
+    margin-bottom: 3rem;
+}
+
+.hero-media {
+    width: 100%;
+    max-width: 600px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(230, 57, 70, 0.4) 0%, rgba(230, 57, 70, 0) 70%);
+    filter: blur(50px);
+    z-index: -1;
+    animation: glow-pulse 4s infinite alternate;
+}
+
+@keyframes glow-pulse {
+    from { opacity: 0.5; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.main-device-img {
+    width: 100%;
+    transform: rotateX(10deg);
+    transition: var(--transition);
+    filter: drop-shadow(0 20px 50px rgba(230, 57, 70, 0.4));
+}
+
+.pro-nukki {
+    max-width: 550px;
+    border-radius: 50%;
+    /* 마스크를 사용하여 이미지 주변을 부드럽게 처리해 누끼 느낌을 극대화합니다 */
+    mask-image: radial-gradient(circle, black 50%, transparent 85%);
+    -webkit-mask-image: radial-gradient(circle, black 50%, transparent 85%);
+}
+
+/* Vision Section */
+.vision-section {
+    padding: 10rem 0;
+    background: var(--bg-dark);
+}
+
+.sticky-title h3 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #ff4d4d, #f9cb28);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.vision-content p {
+    font-size: 1.8rem;
+    color: var(--text-gray);
+    max-width: 800px;
+    margin-bottom: 4rem;
+}
+
+.image-reveal-container {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.zoom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 2s ease;
+}
+
+/* Bento Grid */
+.performance-section {
+    padding: 8rem 0;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    gap: 1.5rem;
+}
+
+.bento-item {
+    background: #1c1c1e;
+    border-radius: 28px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.bento-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-item.medium {
+    grid-column: span 2;
+}
+
+.bento-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    transition: transform 0.5s;
+    z-index: 1;
+}
+
+.bento-item:hover .bento-bg {
+    transform: scale(1.1);
+}
+
+.bento-text {
+    position: relative;
+    z-index: 2;
+}
+
+.bento-text h4 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.bento-text p {
+    color: var(--text-gray);
+}
+
+/* Design Section */
+.design-section {
+    padding: 10rem 0;
+    text-align: center;
+}
+
+.design-section h2 {
+    font-size: 3.5rem;
+    margin-bottom: 5rem;
+}
+
+.parallax-container {
+    height: 500px;
+    overflow: hidden;
+}
+
+.parallax-img {
+    width: 400px;
+}
+
+/* Animations */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.active-reveal {
+    animation: revealUp 1s forwards;
+}
+
+@keyframes revealUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+/* Artisan Section */
+.artisan-section {
+    padding: 10rem 0;
+    background: var(--bg-dark);
+}
+
+.artisan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.artisan-info h3 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.artisan-info p {
+    font-size: 1.4rem;
+    color: var(--text-gray);
+}
+
+.artisan-img-placeholder {
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.artisan-img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+}
+
+.artisan-badge {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: var(--accent-red);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+}
+
+/* Footer */
+.pro-footer {
+    padding: 5rem 0;
+    background: var(--bg-black);
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+.footer-top {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #333;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.link-group h5 {
+    color: var(--text-white);
+    margin-bottom: 1rem;
+}
+
+.link-group ul {
+    list-style: none;
+}
+
+.link-group ul li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 { font-size: 3rem; }
+    .hero-section h2 { font-size: 1.5rem; }
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    .bento-item.large, .bento-item.medium {
+        grid-column: span 1;
+    }
+    .sticky-title h3 { font-size: 2.5rem; }
+}
